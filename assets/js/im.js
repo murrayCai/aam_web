@@ -1,4 +1,4 @@
-var wsUri = "ws://192.168.10.188:16676/";
+var wsImUri = "ws://192.168.10.188:16676/";
 
 var im = {
     socket : undefined,
@@ -15,7 +15,7 @@ var im = {
         // },1000);
     },
     initSocket : function(){
-        im.socket = new WebSocket(wsUri);
+        im.socket = new WebSocket(wsImUri);
         im.socket.onopen = function (evt) {
             im.onOpen(evt)
         };
@@ -40,11 +40,11 @@ var im = {
         im.sendRequest(request);
     },
     onOpen : function (evt) {
-        console.log("CONNECTED");
+        console.log("IM CONNECTED");
         im.init();
     },
     onClose : function (evt) {
-        console.log("DISCONNECTED");
+        console.log("IM DISCONNECTED");
         im.isInited = false;
     },
     onMessage : function (evt) {
